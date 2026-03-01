@@ -1,0 +1,189 @@
+---
+import { Image } from 'astro:assets'
+
+// Import partner logos
+import partner1 from '@/assets/icons/partner-1.svg'
+import partner2 from '@/assets/icons/partner-2.svg'
+import partner3 from '@/assets/icons/partner-3.svg'
+import partner4 from '@/assets/icons/partner-4.svg'
+import partner5 from '@/assets/icons/partner-5.svg'
+import partner6 from '@/assets/icons/partner-6.svg'
+
+const partners = [
+	{ src: partner1, alt: 'Apex Logo' },
+	{ src: partner2, alt: 'Global Logo' },
+	{ src: partner3, alt: 'Block Logo' },
+	{ src: partner4, alt: 'Diamond Logo' },
+	{ src: partner5, alt: 'Fusion Logo' },
+	{ src: partner6, alt: 'Orbit Logo' }
+]
+
+// Duplicate partners for seamless loop
+const allPartners = [...partners, ...partners]
+---
+
+<section class="partners-section">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">Nuestros Partners</h2>
+			<p class="section-subtitle">Empresas líderes que confían en nosotros</p>
+		</div>
+
+		<div class="partners-carousel-container">
+			<div class="partners-wrapper animate-scroll">
+				{
+					allPartners.map((partner) => (
+						<div class="partner-item">
+							<div class="partner-card">
+								<Image
+									src={partner.src}
+									alt={partner.alt}
+									width={120}
+									height={40}
+								/>
+							</div>
+						</div>
+					))
+				}
+				{
+					allPartners.map((partner) => (
+						<div class="partner-item">
+							<div class="partner-card">
+								<Image
+									src={partner.src}
+									alt={partner.alt}
+									width={120}
+									height={40}
+								/>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.partners-section {
+		padding: 80px 0;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(248, 250, 252, 0.5) 100%
+		);
+		overflow: hidden;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 5vw, 2.5rem);
+		font-weight: 800;
+		color: #1e293b;
+		margin-bottom: 1rem;
+		letter-spacing: -0.025em;
+	}
+
+	.section-subtitle {
+		color: #64748b;
+		font-size: 1.1rem;
+	}
+
+	.partners-carousel-container {
+		position: relative;
+		width: 100%;
+		/* Gradient mask for smooth fade at edges */
+		mask-image: linear-gradient(
+			to right,
+			transparent,
+			black 15%,
+			black 85%,
+			transparent
+		);
+		-webkit-mask-image: linear-gradient(
+			to right,
+			transparent,
+			black 15%,
+			black 85%,
+			transparent
+		);
+	}
+
+	.partners-wrapper {
+		display: flex;
+		align-items: center;
+		width: fit-content;
+		gap: 40px;
+		padding: 20px 0;
+	}
+
+	.partner-item {
+		flex: 0 0 auto;
+	}
+
+	.partner-card {
+		background: white;
+		padding: 24px 40px;
+		border-radius: 16px;
+		box-shadow:
+			0 4px 6px -1px rgba(0, 0, 0, 0.05),
+			0 2px 4px -1px rgba(0, 0, 0, 0.03);
+		border: 1px solid rgba(226, 232, 240, 0.8);
+		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+	}
+
+	.partner-card:hover {
+		transform: translateY(-8px) scale(1.05);
+		box-shadow:
+			0 20px 25px -5px rgba(0, 0, 0, 0.1),
+			0 10px 10px -5px rgba(0, 0, 0, 0.04);
+		border-color: rgba(94, 234, 212, 0.5);
+	}
+
+	.partner-card :global(img) {
+		filter: grayscale(1);
+		opacity: 0.6;
+		transition: all 0.4s ease;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.partner-card:hover :global(img) {
+		filter: grayscale(0);
+		opacity: 1;
+	}
+
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	.animate-scroll {
+		animation: scroll 30s linear infinite;
+		width: max-content;
+	}
+
+	/* Pausa la animación al hacer hover */
+	#carousel:hover .animate-scroll {
+		animation-play-state: paused;
+	}
+</style>

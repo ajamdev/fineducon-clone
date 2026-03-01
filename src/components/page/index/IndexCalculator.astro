@@ -1,0 +1,49 @@
+---
+import CardIndexCalculadora from '@/components/all/cardIndexCalculadora.astro'
+import CreditCalculator from '@/components/all/IndexCalculator.jsx'
+import Section from '@/components/ui/Section.astro'
+
+interface Calculadora {
+	icon: string
+	title: string
+	description: string
+}
+
+const INFO: Calculadora[] = [
+	{
+		icon: 'user',
+		title: 'Edad',
+		description: '18 - 84 años'
+	},
+	{
+		icon: 'money-wavy',
+		title: 'Monto mínimo',
+		description: '$500.000'
+	},
+	{
+		icon: 'calendar',
+		title: 'Plazo',
+		description: '6 - 24 meses'
+	}
+]
+---
+
+<Section class="lg:py-8 bg-purple-800">
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+		<div>
+			<header>
+				<h2 class="text-gray-50">Condiciones de crédito</h2>
+			</header>
+			<p class="text-pretty my-p text-gray-50">
+				En <strong>Fineducom</strong>, ofrecemos educación financiera de calidad
+				y créditos justos para tu futuro.
+			</p>
+			<footer class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-5">
+				{INFO.map((item) => <CardIndexCalculadora {...item} />)}
+			</footer>
+		</div>
+		<div>
+			<CreditCalculator client:load />
+		</div>
+	</div>
+</Section>

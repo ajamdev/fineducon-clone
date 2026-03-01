@@ -1,0 +1,39 @@
+---
+import Section from '@/components/ui/Section.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<Section class="lg:py-8 h-screen lg:h-dvh relative">
+	<div
+		class="absolute w-full h-full inset-0 object-cover bg-linear-to-r from-gray-50 via-gray-50 to-transparent"
+	></div>
+	<img
+		src="/images/bg/chica-sonriendo.webp"
+		alt="chica sonriendo"
+		class="absolute inset-0 -z-10 w-full h-full object-cover"
+	/>
+	<div class="relative z-30 h-full flex flex-col justify-center">
+		<header class="w-full max-w-lg">
+			<h1 class="text-balance text-purple-950 mb-h1">
+				Transformamos vidas a través de la educación financiera y creditos
+				accesibles.
+			</h1>
+		</header>
+		<div class="w-full max-w-lg">
+			<p class="text-pretty my-p">
+				En fineducom, ofrecemos educación financiera de calidad y creditos justos
+				para tu futuro.
+			</p>
+		</div>
+		<footer>
+			<div>
+				<a
+					href=""
+					class="inline-flex items-center gap-x-2 bg-amber-200 px-8 py-2 rounded-xl text-purple-950 font-medium"
+					><span>Quiero un crédito</span>
+					<Icon name="ph:arrow-circle-down-right" /></a
+				>
+			</div>
+		</footer>
+	</div>
+</Section>

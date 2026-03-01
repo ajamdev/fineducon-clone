@@ -1,0 +1,5 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 15C10 12.2386 12.2386 10 15 10H25C27.7614 10 30 12.2386 30 15V25C30 27.7614 27.7614 30 25 30H15C12.2386 30 10 27.7614 10 25V15Z" fill="#64748b"/>
+  <path d="M15 20H25" stroke="white" stroke-width="2"/>
+  <text x="40" y="25" fill="#64748b" font-family="Arial, sans-serif" font-weight="bold" font-size="16">FUSION</text>
+</svg>

@@ -1,0 +1,44 @@
+---
+import CardIndexServices from '@/components/all/cardIndexServices.astro'
+import Section from '@/components/ui/Section.astro'
+
+interface Service {
+	iconName: string
+	title: string
+	description: string
+}
+
+const SERVICES: Service[] = [
+	{
+		iconName: 'currency-dollar',
+		title: 'Créditos Personales',
+		description:
+			'Explora nuestras opciones de créditos flexibles y justos que impulsan tu prosperidad.'
+	},
+	{
+		iconName: 'student',
+		title: 'Educación Financiera',
+		description:
+			'Descubre consejos financieros, aprende a ahorrar, manejar deudas y alcanza tus metas.'
+	},
+	{
+		iconName: 'users-three',
+		title: 'Comunidad',
+		description:
+			'Únete a nuestra comunidad en línea: comparte, aprende y avanza hacia un futuro financiero exitoso.'
+	}
+]
+---
+
+<Section class="lg:py-8">
+	<header>
+		<h2 class="text-balance text-purple-950 mb-h2">¿Qué ofrecemos?</h2>
+	</header>
+	<footer class="grid grid-cols-1 md:grid-cols-3 gap-5">
+		{
+			SERVICES.map((service) => (
+				<CardIndexServices {...service} />
+			))
+		}
+	</footer>
+</Section>

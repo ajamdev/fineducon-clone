@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components'
+import '../styles/global.css'
+---
+
+<html lang="es-CO">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<header>
+			<div class="container p-4 mx-auto w-full h-full">
+				<div class="inline-flex items-center gap-x-5">
+					<Icon name="fineducom" class="text-4xl text-purple-950" />
+					<nav>
+						<a href="/">Inicio</a>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>

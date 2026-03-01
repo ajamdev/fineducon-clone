@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { icon, title, description, href } = Astro.props as Props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class="group">
+  <article class="w-full h-full bg-gray-50 rounded-xl p-6 shadow-xl flex flex-row items-center space-x-5">
+    <Icon name={icon} class="size-12 bg-purple-700 p-2 text-gray-50 rounded-lg shrink-0 group-hover:-rotate-6 transition-all duration-100 ease-in" />
+    <div>
+      <h4>{title}</h4>
+      <p>{description}</p>
+    </div>
+  </article>
+</a>

@@ -1,0 +1,41 @@
+---
+import CardIndexContact from '@/components/all/cardIndexContact.astro'
+import Section from '@/components/ui/Section.astro'
+
+interface Contact {
+	icon: string
+	title: string
+	description: string
+	href: string
+}
+
+const CONTACTS: Contact[] = [
+	{
+		icon: 'whatsapp',
+		title: 'WhatsApp',
+		description: 'Chatea con nosotros',
+		href: 'https://wa.me/573102105252'
+	},
+	{
+		icon: 'ph:phone',
+		title: 'Teléfono',
+		description: 'Llámanos',
+		href: 'tel:+573102105252'
+	},
+	{
+		icon: 'ph:envelope-simple',
+		title: 'Correo electrónico',
+		description: 'Escríbenos',
+		href: 'mailto:[EMAIL_ADDRESS]'
+	}
+]
+---
+
+<Section class="lg:py-8">
+	<header>
+		<h2 class="text-center text-balance text-purple-950">Contactanos</h2>
+	</header>
+	<footer class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-5">
+		{CONTACTS.map((contact) => <CardIndexContact {...contact} />)}
+	</footer>
+</Section>

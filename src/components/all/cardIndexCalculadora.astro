@@ -1,0 +1,17 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Calculadora{
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const { icon, title, description } = Astro.props as Calculadora;
+---
+
+<article class="w-full h-full p-6 flex flex-col items-center justify-center bg-gray-50 rounded-xl shadow-lg border-2 border-gray-200">
+  <Icon name={`ph:${icon}`} class="size-10 text-purple-950 mb-2 bg-amber-200 p-2 rounded-full" />
+  <h6 class="text-balance text-purple-950 my-h6 text-center">{title}</h6>
+  <p class="text-pretty">{description}</p>
+</article>
