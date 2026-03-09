@@ -1,0 +1,42 @@
+---
+import Section from '@/components/ui/Section.astro'
+
+interface Cursos {
+	picture: string
+	title: string
+	description: string
+	url: string
+}
+
+const CURSOS: Cursos[] = [
+	{
+		picture:
+			'https://plus.unsplash.com/premium_photo-1679923813998-6603ee2466c5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		title: 'Curso básico de finanzas',
+		description:
+			'Domina los conceptos clave de finanzas personales, presupuesto y ahorro para tomar mejores decisiones con tu dinero.',
+		url: ''
+	}
+]
+---
+
+<Section>
+	<header>
+		<h2 class="text-balance my-h2 text-purple-950 text-center">Nuestro cursos</h2>
+	</header>
+	<footer class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+		{
+			CURSOS.map(({ picture, title, description, url }) => (
+				<a href={url}>
+					<article class="w-full h-full overflow-hidden rounded-xl shadow-2xl">
+						<img src={picture} alt={title} class="aspect-video w-full object-cover object-top"/>
+						<div class="p-5">
+              <h4 class="text-balance mb-h3 text-purple-950">{title}</h4>
+              <p class="text-pretty text-purple-950">{description}</p>
+            </div>
+					</article>
+				</a>
+			))
+		}
+	</footer>
+</Section>

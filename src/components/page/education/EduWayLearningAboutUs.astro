@@ -1,0 +1,44 @@
+---
+import CardWlau from '@/components/all/CardWlau.astro'
+import Section from '@/components/ui/Section.astro'
+
+interface Items {
+	icon: string
+	title: string
+	description: string
+}
+
+const ITEMS: Items[] = [
+	{
+		icon: 'ph:lightbulb-bold',
+		title: 'Expertos calificados',
+		description:
+			'Nuestros cursos son impartidos por expertos calificados en el área de finanzas y educación financiera.'
+	},
+	{
+		icon: 'ph:target',
+		title: 'Metodología práctica',
+		description:
+			'Aprende con ejercicios reales y casos de estudio diseñados para que apliques lo aprendido desde el primer día.'
+	},
+	{
+		icon: 'ph:handshake-light',
+		title: 'Comunidad de apoyo',
+		description:
+			'Conecta con estudiantes y expertos en nuestra comunidad exclusiva. Comparte experiencias, resuelve dudas y crece junto a personas que comparten tus intereses.'
+	}
+]
+---
+
+<Section class="lg:py-8">
+	<header class="text-center">
+		<h2 class="text-balance text-purple-950 mb-h2">¿Por qué aprender con nosotros?</h2>
+	</header>
+	<footer class="grid grid-cols-1 lg:grid-cols-3 gap-5 pt-5">
+    {
+      ITEMS.map((item) => (
+        <CardWlau {...item} />
+      ))
+    }
+  </footer>
+</Section>

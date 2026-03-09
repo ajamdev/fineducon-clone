@@ -1,0 +1,15 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Item {
+  icon:string
+  title:string
+  description:string
+}
+const {icon, title, description} = Astro.props as Item
+---
+<article class="w-full h-full bg-gray-50 border-2 border-gray-100 rounded-xl p-6 shadow-xl">
+	<Icon name={icon} class="size-7 text-purple-950"/>
+	<h3 class="text-balance text-purple-950 my-h3">{title}</h3>
+	<p class="text-pretty my-p">{description}</p>
+</article>
